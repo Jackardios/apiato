@@ -5,6 +5,7 @@ namespace App\Containers\AppSection\Authentication\Providers;
 use Apiato\Core\Loaders\RoutesLoaderTrait;
 use App\Ship\Parents\Providers\AuthProvider as ParentAuthProvider;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Passport;
 use Laravel\Passport\RouteRegistrar;
@@ -30,7 +31,7 @@ class AuthProvider extends ParentAuthProvider
      * @var array
      */
     protected $policies = [
-
+        // User::class => UserPolicy::class,
     ];
 
     /**
@@ -38,11 +39,19 @@ class AuthProvider extends ParentAuthProvider
      */
     public function boot(): void
     {
+        $this->defineAutoDiscover();
         $this->registerPolicies();
 
         $this->registerPassport();
         $this->registerPassportApiRoutes();
         $this->registerPassportWebRoutes();
+    }
+
+    private function defineAutoDiscover(): void
+    {
+        Gate::guessPolicyNamesUsing(function ($class) {
+            return str_replace("\\Models\\", "\\Policies\\" , $class) . 'Policy';
+        });
     }
 
     private function registerPassport(): void
