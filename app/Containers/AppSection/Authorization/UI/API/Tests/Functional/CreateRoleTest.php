@@ -14,7 +14,7 @@ use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
  */
 class CreateRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/roles';
+    protected string $endpoint = 'post@api/v1/roles';
 
     protected array $access = [
         'roles' => '',

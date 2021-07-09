@@ -13,7 +13,7 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class GetAllClientsTest extends ApiTestCase
 {
-    protected string $endpoint = 'get@v1/clients';
+    protected string $endpoint = 'get@api/v1/clients';
 
     protected array $access = [
         'roles' => '',

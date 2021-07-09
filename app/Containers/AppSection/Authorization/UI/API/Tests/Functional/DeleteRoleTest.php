@@ -15,7 +15,7 @@ use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
  */
 class DeleteRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'delete@v1/roles/{id}';
+    protected string $endpoint = 'delete@api/v1/roles/{id}';
 
     protected array $access = [
         'roles' => '',

@@ -17,7 +17,7 @@ use Illuminate\Support\Arr;
  */
 class AssignUserToRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/roles/assign?include=roles';
+    protected string $endpoint = 'post@api/v1/roles/assign?include=roles';
 
     protected array $access = [
         'roles' => '',

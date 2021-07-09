@@ -22,4 +22,4 @@ use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::post('password/forgot', [Controller::class, 'forgotPassword'])
-    ->name('api_user_forgot_password');
+    ->name('api.password.forgot');

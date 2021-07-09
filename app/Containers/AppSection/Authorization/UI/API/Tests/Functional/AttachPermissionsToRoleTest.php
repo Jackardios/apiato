@@ -16,7 +16,7 @@ use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
  */
 class AttachPermissionsToRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/permissions/attach';
+    protected string $endpoint = 'post@api/v1/permissions/attach';
 
     protected array $access = [
         'roles' => '',

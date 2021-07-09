@@ -13,7 +13,7 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class CreateAdminTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/admins';
+    protected string $endpoint = 'post@api/v1/admins';
 
     protected array $access = [
         'permissions' => 'create-admins',

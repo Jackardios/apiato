@@ -16,5 +16,5 @@ use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('users/{id}', [Controller::class, 'findUserById'])
-    ->name('api_user_find_user')
+    ->name('api.users.view')
     ->middleware(['auth:api']);

@@ -21,5 +21,5 @@ use App\Containers\AppSection\Authorization\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::post('roles/sync', [Controller::class, 'syncUserRoles'])
-    ->name('api_authorization_sync_user_roles')
+    ->name('api.roles.sync')
     ->middleware(['auth:api']);

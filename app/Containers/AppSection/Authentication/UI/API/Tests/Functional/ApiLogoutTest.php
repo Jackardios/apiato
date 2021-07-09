@@ -12,7 +12,7 @@ use App\Containers\AppSection\Authentication\Tests\ApiTestCase;
  */
 class ApiLogoutTest extends ApiTestCase
 {
-    protected string $endpoint = 'delete@v1/logout';
+    protected string $endpoint = 'delete@api/v1/logout';
 
     protected array $access = [
         'permissions' => '',
@@ -22,17 +22,7 @@ class ApiLogoutTest extends ApiTestCase
     public function testLogout(): void
     {
         $response = $this->makeCall([], [
-            'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImUxODk3NjU3YTVlZWQxMDkyMThlZjVmOThl
-           MGMzMzg5OTQ3MzNkZDYyZWM0Nzk5Y2E0NWQ1NjUyYmQ0NjFiZWUzZWQ5YjU1ZjNmMGE2NTA3In0.eyJhdWQiOiIyIiwianRpIjoiZTE4OTc
-           2NTdhNWVlZDEwOTIxOGVmNWY5OGUwYzMzODk5NDczM2RkNjJlYzQ3OTljYTQ1ZDU2NTJiZDQ2MWJlZTNlZDliNTVmM2YwYTY1MDciLCJpYXQ
-           iOjE1MTI4NzgzNjMsIm5iZiI6MTUxMjg3ODM2MywiZXhwIjoxODI4MjM4MzYyLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.q1MXp5odmhlurbG
-           a-Ft8m3U3DA6CetCCk23ap8aqY2z_pTpfugqh6vqCe-8iVE9cJPjoMifWAFQ4UeTy_Y0PRurRh7o8_jCqclQ-1IudPmggayyS0kBYoHRRHT-
-           2wzdpIw7jDLg589HV2HClbBq5IwYvLw3yqRTGmEgTFEJ2jCnT58A2sAuRuJ95k3FjuyBZ33dvoFelotMOSG0wR-2H7JjWRi4SL0XEZikoIlT
-           4aAFC8Xa8TVt8ZsfQxDjc9Uyg6HBGTQo5JZNZgSje_0K4DyrHzW3tbWJ2CxLQjTPpWyEcVGavZ55UEjGJXr4JmFAZMCEyIfq0xop1ZnIOiIr
-           mI1ajopXwcTTo0K8ymDDCAgB8JbGQTcGGSZe2VHJCXXaQJvesIlvke6ZvsoKwUqphpe99Qi67e3TA0_uDK8_u-Bv4lew95lg3IXBMKvfXvi1
-           7rEDvO23uClDWnZUhHKgqtPhO8oG7A1hFR8arLN1lEKrP44zO5470cD6_Pw7Ngi1coJeG5jXmtRb9gCpksdYQBB5csURioYSZuHNZQBGVWZV
-           zlURPWvgtSd_aL646KmMmy64L4MA1QXsqXzzuLULGbcSntB8N-2XcogdTFe0ZG6RL8UzcArZx0Xur8CCi01UuPkBCnv5R4hxIjsQDkmFIDmr
-           Cyo2VuoVyrlxWIgsTm04'
+            'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMDAiLCJqdGkiOiI1ZTdlNDFhNTE4MWM3MTE2Y2UzNmMwOWIxMzhhMmVhZjE0YzBiMmYyZWQyNWExNDdhZGUzNWUyMjkxNDg3NTJmNGQyN2E1ZWZmZTI1N2FjNSIsImlhdCI6MTYyNTIyNTQxNS45Mzc2ODEsIm5iZiI6MTYyNTIyNTQxNS45Mzc2ODMsImV4cCI6MTYyNTMxMTgxNS44MDQ2MzgsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.ikTrWQHmxHv14Vdb05dlQhtMctJR1XHzPHEIVGHnwMk9ZrB6APdIbF0hH5dURNTdA4RZQ90uSa25hCqcYlEt_Wdo5taYYLyfE9H1RtmF5jmawdYjklrZCUHoPXPaQcR-NIUZgDlRuyQJhgOku379KwnbfoYozT-v3JqWDOh2w2LEo0DuHlQZ71HHEZCdwptNXYe8RYWTmqvYN95jmGq6yL1_yzyLj4n1nxsQ02mMNl2rzhric_ofoJT_2PKNX6loyfaLXkrJ5yQW2wwce5DgGtXQGiDz9jQ-cnOXDDBNQ7NLAm0Zeol_g3hfgv8upquvy4KvJpwHsun9t8X3dCkxvKDwuR5gBRvk-qqiVLUv3Ns9rrJ8WujAqo_LZPEVHV_CF4Vp0Im7kyzngvbHo3YZcvMgfN6VMbmTLLhYxGFPS9jJyQwnN15AI-u9wFm15DVfZ4M4ItXgDQjQMNnhXawZQb4Z7vdRyrh-a43JEHyzJVxTSpUBc6s_OcF9PVNISDBQsHlz90xMljNNdB7Bovz1swRNoDRQmMR-XE0ESQKTIABbDs5cWlosvbLlqBjTPCrgFYiztKkTPGCUF9FwTwo2MSi3mJijGxl-AfJMGU2D7J33stuqvSD-vUTazcpPBM502qKYOSBNIGGq4uOHoa3YjBZvQJQV3crZQpbVb-KWhpE'
         ]);
 
         $response->assertStatus(202);

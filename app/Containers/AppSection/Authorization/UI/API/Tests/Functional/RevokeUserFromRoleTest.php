@@ -16,7 +16,7 @@ use App\Containers\AppSection\User\Models\User;
  */
 class RevokeUserFromRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/roles/revoke';
+    protected string $endpoint = 'post@api/v1/roles/revoke';
 
     protected array $access = [
         'roles' => '',

@@ -12,7 +12,7 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class UpdateUserTest extends ApiTestCase
 {
-    protected string $endpoint = 'patch@v1/users/{id}';
+    protected string $endpoint = 'patch@api/v1/users/{id}';
 
     protected array $access = [
         'roles' => '',

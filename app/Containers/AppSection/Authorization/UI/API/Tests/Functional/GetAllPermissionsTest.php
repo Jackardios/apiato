@@ -14,7 +14,7 @@ use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
  */
 class GetAllPermissionsTest extends ApiTestCase
 {
-    protected string $endpoint = 'get@v1/permissions';
+    protected string $endpoint = 'get@api/v1/permissions';
 
     protected array $access = [
         'roles' => '',

@@ -15,5 +15,5 @@ use App\Containers\AppSection\Authorization\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('permissions', [Controller::class, 'getAllPermissions'])
-    ->name('api_authorization_get_all_permissions')
+    ->name('api.permissions.list')
     ->middleware(['auth:api']);

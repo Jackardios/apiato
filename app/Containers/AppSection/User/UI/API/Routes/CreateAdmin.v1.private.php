@@ -20,5 +20,5 @@ use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::post('admins', [Controller::class, 'createAdmin'])
-    ->name('api_user_create_admin')
+    ->name('api.admins.create')
     ->middleware(['auth:api']);

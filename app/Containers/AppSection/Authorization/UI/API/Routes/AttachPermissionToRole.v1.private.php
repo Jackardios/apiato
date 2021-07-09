@@ -23,5 +23,5 @@ use App\Containers\AppSection\Authorization\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::post('permissions/attach', [Controller::class, 'attachPermissionToRole'])
-    ->name('api_authorization_attach_permission_to_role')
+    ->name('api.permissions.attach')
     ->middleware(['auth:api']);

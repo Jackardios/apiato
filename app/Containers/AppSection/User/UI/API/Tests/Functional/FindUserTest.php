@@ -12,7 +12,7 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class FindUserTest extends ApiTestCase
 {
-    protected string $endpoint = 'get@v1/users/{id}';
+    protected string $endpoint = 'get@api/v1/users/{id}';
 
     protected array $access = [
         'roles' => '',

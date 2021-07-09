@@ -13,7 +13,7 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class DeleteUserTest extends ApiTestCase
 {
-    protected string $endpoint = 'delete@v1/users/{id}';
+    protected string $endpoint = 'delete@api/v1/users/{id}';
 
     protected array $access = [
         'roles' => '',

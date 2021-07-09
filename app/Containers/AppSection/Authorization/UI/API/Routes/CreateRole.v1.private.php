@@ -19,5 +19,5 @@ use App\Containers\AppSection\Authorization\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::post('roles', [Controller::class, 'createRole'])
-    ->name('api_authorization_create_role')
+    ->name('api.roles.create')
     ->middleware(['auth:api']);

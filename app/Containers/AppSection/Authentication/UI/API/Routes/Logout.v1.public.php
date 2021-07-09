@@ -19,6 +19,6 @@ use App\Containers\AppSection\Authentication\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::delete('logout', [Controller::class, 'logout'])
-    ->name('api_authentication_logout')
+    ->name('api.authentication.logout')
     ->middleware(['auth:api']);
 

@@ -16,7 +16,7 @@ use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
  */
 class SyncPermissionsOnRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/permissions/sync';
+    protected string $endpoint = 'post@api/v1/permissions/sync';
 
     protected array $access = [
         'roles' => '',

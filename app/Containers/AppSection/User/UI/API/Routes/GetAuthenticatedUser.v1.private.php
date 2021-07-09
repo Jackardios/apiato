@@ -17,5 +17,5 @@ use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('user/profile', [Controller::class, 'getAuthenticatedUser'])
-    ->name('api_user_get_authenticated_user')
+    ->name('api.user.profile')
     ->middleware(['auth:api']);

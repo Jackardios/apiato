@@ -23,4 +23,4 @@ use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::any('password/reset', [Controller::class, 'resetPassword'])
-    ->name('api_user_reset_password');
+    ->name('api.password.reset');

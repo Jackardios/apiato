@@ -20,5 +20,5 @@ use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('admins', [Controller::class, 'getAllAdmins'])
-    ->name('api_user_get_all_admins')
+    ->name('api.admins.list')
     ->middleware(['auth:api']);

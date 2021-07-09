@@ -16,7 +16,7 @@ use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
  */
 class DetachPermissionsFromRoleTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/permissions/detach';
+    protected string $endpoint = 'post@api/v1/permissions/detach';
 
     protected array $access = [
         'roles' => '',

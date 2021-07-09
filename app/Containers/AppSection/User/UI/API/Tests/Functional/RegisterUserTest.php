@@ -12,7 +12,7 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class RegisterUserTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@v1/register';
+    protected string $endpoint = 'post@api/v1/register';
 
     protected bool $auth = false;
 
@@ -49,7 +49,7 @@ class RegisterUserTest extends ApiTestCase
             'password' => 'secret',
         ];
 
-        $response = $this->endpoint('get@v1/register')->makeCall($data);
+        $response = $this->endpoint('get@api/v1/register')->makeCall($data);
 
         $response->assertStatus(405);
         $this->assertResponseContainKeyValue([

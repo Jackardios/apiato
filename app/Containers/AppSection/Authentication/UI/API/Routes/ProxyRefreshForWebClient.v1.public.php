@@ -24,4 +24,4 @@ use App\Containers\AppSection\Authentication\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::post('clients/web/refresh', [Controller::class, 'proxyRefreshForWebClient'])
-    ->name('api_authentication_client_web_refresh_proxy');
+    ->name('api.authentication.refresh');
