@@ -11,9 +11,17 @@ class AuthorizationPermissionsSeeder_1 extends Seeder
     {
         // Default Permissions ----------------------------------------------------------
         $createPermissionTask = app(CreatePermissionTask::class);
-        $createPermissionTask->run('manage-roles', 'Create, Update, Delete, Get All, Attach/detach permissions to Roles and Get All Permissions.');
-        $createPermissionTask->run('create-admins', 'Create new Users (Admins) from the dashboard.');
-        $createPermissionTask->run('manage-admins-access', 'Assign users to Roles.');
-        $createPermissionTask->run('access-dashboard', 'Access the admins dashboard.');
+        $createPermissionTask->run(
+            'manage-roles',
+            'Управление ролями',
+            'roles',
+            'Просмотр, создание, изменение и удаление любых ролей и прикрепление к ним любых прав доступа.',
+        );
+        $createPermissionTask->run(
+            'assign-roles',
+            'Назначение ролей',
+            'roles',
+            'Назначение ролей пользователям',
+        );
     }
 }

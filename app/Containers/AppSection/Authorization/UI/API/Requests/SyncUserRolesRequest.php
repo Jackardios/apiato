@@ -11,7 +11,7 @@ class SyncUserRolesRequest extends Request
      */
     protected array $access = [
         'roles' => '',
-        'permissions' => 'manage-admins-access',
+        'permissions' => 'assign-roles',
     ];
 
     /**
