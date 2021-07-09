@@ -21,17 +21,7 @@ class UserFactory extends Factory
             'password' => $password ?: $password = Hash::make('testing-password'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'is_admin' => false,
         ];
-    }
-
-    public function admin(): UserFactory
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'is_admin' => true,
-            ];
-        });
     }
 
     public function unverified(): UserFactory

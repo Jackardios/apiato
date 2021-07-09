@@ -10,8 +10,6 @@
  *
  * @apiParam           {String}  [password]
  * @apiParam           {String}  [name]
- * @apiParam           {String="male,female,unspecified"}  [gender]
- * @apiParam           {String}  [birth] format: Ymd / e.g. 20151015
  *
  * @apiUse             UserSuccessSingleResponse
  */

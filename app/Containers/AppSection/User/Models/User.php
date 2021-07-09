@@ -19,21 +19,7 @@ class User extends UserModel
         'name',
         'email',
         'password',
-        'device',
-        'platform',
-        'gender',
-        'birth',
-        'social_provider',
-        'social_token',
-        'social_refresh_token',
-        'social_expires_in',
-        'social_token_secret',
-        'social_id',
-        'social_avatar',
-        'social_avatar_original',
-        'social_nickname',
         'email_verified_at',
-        'is_admin',
     ];
 
     protected $hidden = [
@@ -42,7 +28,6 @@ class User extends UserModel
     ];
 
     protected $casts = [
-        'is_admin' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
 }

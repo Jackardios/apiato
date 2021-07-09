@@ -19,12 +19,9 @@ class CreateUserByCredentialsTask extends Task
     }
 
     public function run(
-        bool $isAdmin,
         string $email,
         string $password,
-        string $name = null,
-        string $gender = null,
-        string $birth = null
+        string $name = null
     ): User
     {
         try {
@@ -33,9 +30,6 @@ class CreateUserByCredentialsTask extends Task
                 'password' => Hash::make($password),
                 'email' => $email,
                 'name' => $name,
-                'gender' => $gender,
-                'birth' => $birth,
-                'is_admin' => $isAdmin,
             ]);
 
         } catch (Exception $e) {

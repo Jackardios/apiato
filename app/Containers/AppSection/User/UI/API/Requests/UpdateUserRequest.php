@@ -38,8 +38,6 @@ class UpdateUserRequest extends Request
             'id' => 'required|exists:users,id',
             'password' => 'min:6|max:40',
             'name' => 'min:2|max:50',
-            'gender' => 'in:male,female,unspecified',
-            'birth' => 'date_format:Ymd',
         ];
     }
 

@@ -25,8 +25,6 @@ class UserPrivateProfileTransformer extends Transformer
             'name' => $user->name,
             'email' => $user->email,
             'email_verified_at' => $user->email_verified_at,
-            'gender' => $user->gender,
-            'birth' => $user->birth,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
             'readable_created_at' => $user->created_at->diffForHumans(),

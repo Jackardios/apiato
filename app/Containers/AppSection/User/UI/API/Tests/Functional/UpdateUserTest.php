@@ -24,9 +24,7 @@ class UpdateUserTest extends ApiTestCase
         $user = $this->getTestingUser();
         $data = [
             'name' => 'Updated Name',
-            'password' => 'updated#Password',
-            'gender' => 'male',
-            'birth' => '20151015'
+            'password' => 'updated#Password'
         ];
 
         $response = $this->injectId($user->id)->makeCall($data);
@@ -35,9 +33,7 @@ class UpdateUserTest extends ApiTestCase
         $this->assertResponseContainKeyValue([
             'object' => 'User',
             'email' => $user->email,
-            'name' => $data['name'],
-            'gender' => $data['gender'],
-            'birth' => $data['birth']
+            'name' => $data['name']
         ]);
         $this->assertDatabaseHas('users', ['name' => $data['name']]);
     }
@@ -71,9 +67,7 @@ class UpdateUserTest extends ApiTestCase
     {
         $data = [
             'name' => '',
-            'password' => '',
-            'gender' => '',
-            'birth' => ''
+            'password' => ''
         ];
 
         $response = $this->makeCall($data);
@@ -82,9 +76,7 @@ class UpdateUserTest extends ApiTestCase
         $this->assertValidationErrorContain([
             // messages should be updated after modifying the validation rules, to pass this test
             'password' => 'The password must be at least 6 characters.',
-            'name' => 'The name must be at least 2 characters.',
-            'gender' => 'The selected gender is invalid.',
-            'birth' => 'The birth does not match the format Ymd.'
+            'name' => 'The name must be at least 2 characters.'
         ]);
     }
 }

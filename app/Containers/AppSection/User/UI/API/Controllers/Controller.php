@@ -2,12 +2,9 @@
 
 namespace App\Containers\AppSection\User\UI\API\Controllers;
 
-use App\Containers\AppSection\User\Actions\CreateAdminAction;
 use App\Containers\AppSection\User\Actions\DeleteUserAction;
 use App\Containers\AppSection\User\Actions\FindUserByIdAction;
 use App\Containers\AppSection\User\Actions\ForgotPasswordAction;
-use App\Containers\AppSection\User\Actions\GetAllAdminsAction;
-use App\Containers\AppSection\User\Actions\GetAllClientsAction;
 use App\Containers\AppSection\User\Actions\GetAllUsersAction;
 use App\Containers\AppSection\User\Actions\GetAuthenticatedUserAction;
 use App\Containers\AppSection\User\Actions\RegisterUserAction;
@@ -35,12 +32,6 @@ class Controller extends ApiController
         return $this->transform($user, UserTransformer::class);
     }
 
-    public function createAdmin(CreateAdminRequest $request): array
-    {
-        $admin = app(CreateAdminAction::class)->run($request);
-        return $this->transform($admin, UserTransformer::class);
-    }
-
     public function updateUser(UpdateUserRequest $request): array
     {
         $user = app(UpdateUserAction::class)->run($request);
@@ -56,18 +47,6 @@ class Controller extends ApiController
     public function getAllUsers(GetAllUsersRequest $request): array
     {
         $users = app(GetAllUsersAction::class)->run();
-        return $this->transform($users, UserTransformer::class);
-    }
-
-    public function getAllClients(GetAllUsersRequest $request): array
-    {
-        $users = app(GetAllClientsAction::class)->run();
-        return $this->transform($users, UserTransformer::class);
-    }
-
-    public function getAllAdmins(GetAllUsersRequest $request): array
-    {
-        $users = app(GetAllAdminsAction::class)->run();
         return $this->transform($users, UserTransformer::class);
     }
 
