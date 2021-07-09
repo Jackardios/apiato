@@ -8,6 +8,7 @@ class PermissionRepository extends Repository
 {
     protected $fieldSearchable = [
         'name' => '=',
+        'group' => '=',
         'display_name' => 'like',
         'description' => 'like',
     ];

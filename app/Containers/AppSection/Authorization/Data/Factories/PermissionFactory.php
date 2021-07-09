@@ -13,6 +13,7 @@ class PermissionFactory extends Factory
     {
         return [
             'name' => $this->faker->slug,
+            'display_name' => $this->faker->name,
         ];
     }
 }
