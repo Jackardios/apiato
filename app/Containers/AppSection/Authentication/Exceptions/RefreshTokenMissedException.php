@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RefreshTokenMissedException extends Exception
 {
-    protected $code = Response::HTTP_BAD_REQUEST;
-    protected $message = 'We could not find the Refresh Token. Maybe none is provided?';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_BAD_REQUEST, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('appSection@authentication::exceptions.refresh-token-missed');
+        parent::__construct($message, $code, $previous);
+    }
 }

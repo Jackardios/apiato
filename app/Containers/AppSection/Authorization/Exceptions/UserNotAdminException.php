@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserNotAdminException extends Exception
 {
-    protected $code = Response::HTTP_FORBIDDEN;
-    protected $message = 'This User does not have an Admin permission.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_FORBIDDEN, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('appSection@authorization::exceptions.user-not-admin');
+        parent::__construct($message, $code, $previous);
+    }
 }

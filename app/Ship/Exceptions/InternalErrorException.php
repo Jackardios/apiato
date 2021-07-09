@@ -3,10 +3,13 @@
 namespace App\Ship\Exceptions;
 
 use App\Ship\Parents\Exceptions\Exception;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class InternalErrorException extends Exception
 {
-    protected $code = SymfonyResponse::HTTP_INTERNAL_SERVER_ERROR;
-    protected $message = 'Something went wrong!';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_INTERNAL_SERVER_ERROR, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('exceptions.internal-error');
+        parent::__construct($message, $code, $previous);
+    }
 }

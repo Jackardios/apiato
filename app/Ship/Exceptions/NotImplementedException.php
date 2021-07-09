@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class NotImplementedException extends Exception
 {
-    protected $code = Response::HTTP_NOT_IMPLEMENTED;
-    protected $message = 'This method is not yet implemented.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_NOT_IMPLEMENTED, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('exceptions.not-implemented');
+        parent::__construct($message, $code, $previous);
+    }
 }

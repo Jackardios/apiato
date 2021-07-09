@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CreateResourceFailedException extends Exception
 {
-    protected $code = Response::HTTP_EXPECTATION_FAILED;
-    protected $message = 'Failed to create Resource.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_EXPECTATION_FAILED, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('exceptions.create-resource-failed');
+        parent::__construct($message, $code, $previous);
+    }
 }

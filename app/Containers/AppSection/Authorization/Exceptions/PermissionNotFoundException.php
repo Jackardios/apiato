@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PermissionNotFoundException extends Exception
 {
-    protected $code = Response::HTTP_NOT_FOUND;
-    protected $message = 'The requested Permission was not found.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_NOT_FOUND, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('appSection@authorization::exceptions.permission-not-found');
+        parent::__construct($message, $code, $previous);
+    }
 }

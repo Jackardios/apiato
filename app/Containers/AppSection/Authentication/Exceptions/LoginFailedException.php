@@ -3,10 +3,14 @@
 namespace App\Containers\AppSection\Authentication\Exceptions;
 
 use App\Ship\Parents\Exceptions\Exception;
+use Exception as BaseException;
 use Symfony\Component\HttpFoundation\Response;
 
 class LoginFailedException extends Exception
 {
-    protected $code = Response::HTTP_BAD_REQUEST;
-    protected $message = 'An Exception happened during the Login Process.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_BAD_REQUEST, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('appSection@authentication::exceptions.login-failed');
+        parent::__construct($message, $code, $previous);
+    }
 }

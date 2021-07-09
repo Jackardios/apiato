@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class OAuthException extends Exception
 {
-    protected $code = Response::HTTP_INTERNAL_SERVER_ERROR;
-    protected $message = 'OAuth 2.0 is not installed.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_INTERNAL_SERVER_ERROR, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('appSection@authentication::exceptions.oauth');
+        parent::__construct($message, $code, $previous);
+    }
 }

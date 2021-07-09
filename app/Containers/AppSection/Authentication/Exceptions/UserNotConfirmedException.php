@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserNotConfirmedException extends Exception
 {
-    protected $code = Response::HTTP_CONFLICT;
-    protected $message = 'The user email is not confirmed yet. Please verify your user before trying to login.';
+    public function __construct(?string $message = null, ?int $code = Response::HTTP_CONFLICT, ?BaseException $previous = null)
+    {
+        $message = $message ?? __('appSection@authentication::exceptions.user-not-confirmed');
+        parent::__construct($message, $code, $previous);
+    }
 }
