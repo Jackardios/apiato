@@ -22,7 +22,7 @@ class UpdateUserTest extends ApiTestCase
 
     public function testUpdateExistingUser(): void
     {
-        $user = $this->getTestingUser();
+        $user = $this->getTestingUserWithoutAccess();
         $data = [
             'name' => 'Updated Name',
             'password' => 'updated#Password'
@@ -41,7 +41,7 @@ class UpdateUserTest extends ApiTestCase
 
     public function testUpdateExistingUserWithoutData(): void
     {
-        $user = $this->getTestingUser();
+        $user = $this->getTestingUserWithoutAccess();
 
         $response = $this->injectId($user->id)->makeCall();
 
@@ -50,7 +50,7 @@ class UpdateUserTest extends ApiTestCase
 
     public function testUpdateExistingUserWithEmptyValues(): void
     {
-        $user = $this->getTestingUser();
+        $user = $this->getTestingUserWithoutAccess();
 
         $data = [
             'name' => '',
