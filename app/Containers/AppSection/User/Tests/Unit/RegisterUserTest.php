@@ -9,7 +9,7 @@ use App\Containers\AppSection\User\UI\API\Requests\RegisterUserRequest;
 use Illuminate\Support\Facades\App;
 
 /**
- * Class CreateUserTest.
+ * Class RegisterUserTest.
  *
  * @group user
  * @group unit
