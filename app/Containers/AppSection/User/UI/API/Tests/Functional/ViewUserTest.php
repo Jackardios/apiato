@@ -2,15 +2,16 @@
 
 namespace App\Containers\AppSection\User\UI\API\Tests\Functional;
 
+use App\Containers\AppSection\User\Models\User;
 use App\Containers\AppSection\User\Tests\ApiTestCase;
 
 /**
- * Class FindUsersTest.
+ * Class ViewUsersTest.
  *
  * @group user
  * @group api
  */
-class FindUserTest extends ApiTestCase
+class ViewUserTest extends ApiTestCase
 {
     protected string $endpoint = 'get@api/v1/users/{id}';
 
@@ -19,9 +20,9 @@ class FindUserTest extends ApiTestCase
         'permissions' => 'view-users',
     ];
 
-    public function testFindUser(): void
+    public function testViewExistingUser(): void
     {
-        $user = $this->getTestingUser();
+        $user = $this->getTestingUserWithoutAccess();
 
         $response = $this->injectId($user->id)->makeCall();
 
@@ -30,7 +31,39 @@ class FindUserTest extends ApiTestCase
         self::assertEquals($user->name, $responseContent->data->name);
     }
 
-    public function testFindFilteredUserResponse(): void
+    public function testViewAnotherExistingUser(): void
+    {
+        $this->getTestingUser();
+        $anotherUser = User::factory()->create();
+
+        $response = $this->injectId($anotherUser->id)->makeCall();
+
+        $response->assertStatus(200);
+        $responseContent = $this->getResponseContentObject();
+        self::assertEquals($anotherUser->name, $responseContent->data->name);
+    }
+
+    public function testViewAnotherExistingUserWithoutAccess(): void
+    {
+        $this->getTestingUserWithoutAccess();
+        $anotherUser = User::factory()->create();
+
+        $response = $this->injectId($anotherUser->id)->makeCall();
+
+        $response->assertStatus(403);
+    }
+
+    public function testViewAnotherNotExistingUser(): void
+    {
+        $this->getTestingUser();
+        $fakeUserId = 7777;
+
+        $response = $this->injectId($fakeUserId)->makeCall();
+
+        $response->assertStatus(404);
+    }
+
+    public function testViewFilteredUserResponse(): void
     {
         $user = $this->getTestingUser();
 
@@ -44,7 +77,7 @@ class FindUserTest extends ApiTestCase
         self::assertNotContains('id', json_decode($response->getContent(), true));
     }
 
-    public function testFindUserWithRelation(): void
+    public function testViewUserWithRelation(): void
     {
         $user = $this->getTestingUser();
 
@@ -52,6 +85,7 @@ class FindUserTest extends ApiTestCase
 
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
+
         self::assertEquals($user->email, $responseContent->data->email);
         self::assertNotNull($responseContent->data->roles);
     }
