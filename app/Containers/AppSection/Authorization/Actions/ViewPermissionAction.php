@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authorization\Actions;
 
-use App\Containers\AppSection\Authorization\Models\Permission;
+use Spatie\Permission\Models\Permission;
 use App\Containers\AppSection\Authorization\UI\API\Requests\ViewPermissionRequest;
 use App\Ship\Parents\Actions\Action;
 
