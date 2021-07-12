@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "592c9a98910fcabe3fbc6f818099bec6",
+    "content-hash": "79cffca09eb382250adfe64855bd9885",
     "packages": [
         {
             "name": "apiato/container-installer",
@@ -42,89 +42,6 @@
                 "source": "https://github.com/apiato/container-installer/tree/v2.0.8"
             },
             "time": "2021-04-25T14:25:10+00:00"
-        },
-        {
-            "name": "apiato/core",
-            "version": "v6.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/apiato/core.git",
-                "reference": "f97c7f43658a26d916adc362e05bb775d146ff72"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/apiato/core/zipball/f97c7f43658a26d916adc362e05bb775d146ff72",
-                "reference": "f97c7f43658a26d916adc362e05bb775d146ff72",
-                "shasum": ""
-            },
-            "require": {
-                "apiato/container-installer": "^2.0.8",
-                "ext-json": "*",
-                "fruitcake/laravel-cors": "^1.0.5",
-                "guzzlehttp/guzzle": "^7.2.0",
-                "laravel/framework": "^8.0.0",
-                "laravel/passport": "^10.0.0",
-                "laravel/tinker": "^2.6.0",
-                "php": "^7.4|^8.0",
-                "prettus/l5-repository": "^2.7.4",
-                "spatie/laravel-fractal": "^5.8.1",
-                "spatie/laravel-permission": "^4.0.0",
-                "vinkla/hashids": "^9.1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.4.2",
-                "roave/security-advisories": "dev-latest"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Apiato\\Core\\Providers\\ApiatoProvider",
-                        "Vinkla\\Hashids\\HashidsServiceProvider",
-                        "Prettus\\Repository\\Providers\\RepositoryServiceProvider",
-                        "Fruitcake\\Cors\\CorsServiceProvider",
-                        "Spatie\\Fractal\\FractalServiceProvider",
-                        "Laravel\\Tinker\\TinkerServiceProvider",
-                        "Apiato\\Core\\Generator\\GeneratorsServiceProvider"
-                    ],
-                    "aliases": {
-                        "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
-                        "Fractal": "Spatie\\Fractal\\FractalFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Apiato\\Core\\": ""
-                },
-                "files": [
-                    "Helpers/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mahmoud Zalt",
-                    "email": "mahmoud@zalt.me"
-                }
-            ],
-            "description": "Core package for Apiato.",
-            "homepage": "http://apiato.io/",
-            "keywords": [
-                "Porto",
-                "Porto SAP",
-                "apiato",
-                "apiato core",
-                "core"
-            ],
-            "support": {
-                "issues": "https://github.com/apiato/core/issues",
-                "source": "https://github.com/apiato/core"
-            },
-            "time": "2021-07-06T19:38:52+00:00"
         },
         {
             "name": "apiato/documentation-generator-container",
@@ -1729,6 +1646,88 @@
             "time": "2020-11-26T19:24:33+00:00"
         },
         {
+            "name": "jackardios/apiato-core",
+            "version": "6.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jackardios/apiato-core.git",
+                "reference": "9b5fa98e39e01e7927186939ebfb32f6957fea1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jackardios/apiato-core/zipball/9b5fa98e39e01e7927186939ebfb32f6957fea1c",
+                "reference": "9b5fa98e39e01e7927186939ebfb32f6957fea1c",
+                "shasum": ""
+            },
+            "require": {
+                "apiato/container-installer": "^2.0.8",
+                "ext-json": "*",
+                "fruitcake/laravel-cors": "^1.0.5",
+                "guzzlehttp/guzzle": "^7.2.0",
+                "laravel/framework": "^8.0.0",
+                "laravel/passport": "^10.0.0",
+                "laravel/tinker": "^2.6.0",
+                "php": "^7.4|^8.0",
+                "spatie/laravel-fractal": "^5.8.1",
+                "spatie/laravel-permission": "^4.0.0",
+                "vinkla/hashids": "^9.1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.2",
+                "roave/security-advisories": "dev-latest"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Apiato\\Core\\Providers\\ApiatoProvider",
+                        "Vinkla\\Hashids\\HashidsServiceProvider",
+                        "Fruitcake\\Cors\\CorsServiceProvider",
+                        "Spatie\\Fractal\\FractalServiceProvider",
+                        "Laravel\\Tinker\\TinkerServiceProvider",
+                        "Apiato\\Core\\Generator\\GeneratorsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Hashids": "Vinkla\\Hashids\\Facades\\Hashids",
+                        "Fractal": "Spatie\\Fractal\\FractalFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Apiato\\Core\\": ""
+                },
+                "files": [
+                    "Helpers/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mahmoud Zalt",
+                    "email": "mahmoud@zalt.me"
+                }
+            ],
+            "description": "Core package for Apiato.",
+            "homepage": "http://apiato.io/",
+            "keywords": [
+                "Porto",
+                "Porto SAP",
+                "apiato",
+                "apiato core",
+                "core"
+            ],
+            "support": {
+                "issues": "https://github.com/apiato/core/issues",
+                "source": "https://github.com/apiato/core"
+            },
+            "time": "2021-07-12T23:04:06+00:00"
+        },
+        {
             "name": "jaybizzle/crawler-detect",
             "version": "v1.2.106",
             "source": {
@@ -2303,43 +2302,41 @@
         },
         {
             "name": "lcobucci/jwt",
-            "version": "4.0.3",
+            "version": "4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "ae4165a76848e070fdac691e773243d10cd06ce1"
+                "reference": "71cf170102c8371ccd933fa4df6252086d144de6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/ae4165a76848e070fdac691e773243d10cd06ce1",
-                "reference": "ae4165a76848e070fdac691e773243d10cd06ce1",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/71cf170102c8371ccd933fa4df6252086d144de6",
+                "reference": "71cf170102c8371ccd933fa4df6252086d144de6",
                 "shasum": ""
             },
             "require": {
+                "ext-hash": "*",
+                "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
+                "ext-sodium": "*",
                 "lcobucci/clock": "^2.0",
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "infection/infection": "^0.20",
+                "infection/infection": "^0.21",
                 "lcobucci/coding-standard": "^6.0",
-                "mikey179/vfsstream": "^1.6",
-                "phpbench/phpbench": "^0.17",
+                "mikey179/vfsstream": "^1.6.7",
+                "phpbench/phpbench": "^1.0@alpha",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-deprecation-rules": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
                 "phpstan/phpstan-strict-rules": "^0.12",
                 "phpunit/php-invoker": "^3.1",
-                "phpunit/phpunit": "^9.4"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Lcobucci\\JWT\\": "src"
@@ -2363,7 +2360,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lcobucci/jwt/issues",
-                "source": "https://github.com/lcobucci/jwt/tree/4.0.3"
+                "source": "https://github.com/lcobucci/jwt/tree/4.1.4"
             },
             "funding": [
                 {
@@ -2375,7 +2372,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-23T23:47:22+00:00"
+            "time": "2021-03-23T23:53:08+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2752,23 +2749,23 @@
         },
         {
             "name": "league/oauth2-server",
-            "version": "8.3.1",
+            "version": "8.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-server.git",
-                "reference": "97dbc97b3b1bc4e613b70cb5e0e07d4b2d9372cc"
+                "reference": "622eaa1f28eb4a2dea0cfc7e4f5280fac794e83c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/97dbc97b3b1bc4e613b70cb5e0e07d4b2d9372cc",
-                "reference": "97dbc97b3b1bc4e613b70cb5e0e07d4b2d9372cc",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/622eaa1f28eb4a2dea0cfc7e4f5280fac794e83c",
+                "reference": "622eaa1f28eb4a2dea0cfc7e4f5280fac794e83c",
                 "shasum": ""
             },
             "require": {
                 "defuse/php-encryption": "^2.2.1",
                 "ext-json": "*",
                 "ext-openssl": "*",
-                "lcobucci/jwt": "^3.4 || ~4.0.0",
+                "lcobucci/jwt": "^3.4 || ^4.0",
                 "league/event": "^2.2",
                 "php": "^7.2 || ^8.0",
                 "psr/http-message": "^1.0.1"
@@ -2827,7 +2824,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/oauth2-server/issues",
-                "source": "https://github.com/thephpleague/oauth2-server/tree/8.3.1"
+                "source": "https://github.com/thephpleague/oauth2-server/tree/8.2.4"
             },
             "funding": [
                 {
@@ -2835,7 +2832,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-04T08:28:35+00:00"
+            "time": "2020-12-10T11:35:44+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -3636,129 +3633,6 @@
                 }
             ],
             "time": "2021-06-14T06:54:45+00:00"
-        },
-        {
-            "name": "prettus/l5-repository",
-            "version": "2.7.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "2bd56801c78becf6a26b0d795312d879e55730cd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/2bd56801c78becf6a26b0d795312d879e55730cd",
-                "reference": "2bd56801c78becf6a26b0d795312d879e55730cd",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/console": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/database": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/filesystem": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/http": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/pagination": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/support": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/validation": "~5.0|~6.0|~7.0|^8.0",
-                "prettus/laravel-validation": "~1.1|~1.2"
-            },
-            "suggest": {
-                "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
-                "prettus/laravel-validation": "Required to provide easy validation with the repository (1.1.*)",
-                "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Prettus\\Repository\\Providers\\RepositoryServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Prettus\\Repository\\": "src/Prettus/Repository/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anderson Andrade",
-                    "email": "contato@andersonandra.de",
-                    "homepage": "http://andersonandra.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel 5|6|7|8 - Repositories to  the database layer",
-            "homepage": "http://andersao.github.io/l5-repository",
-            "keywords": [
-                "cache",
-                "eloquent",
-                "laravel",
-                "model",
-                "repository"
-            ],
-            "support": {
-                "docs": "http://andersao.github.io/l5-repository",
-                "email": "contato@andersonandra.de",
-                "issues": "https://github.com/andersao/l5-repository/issues",
-                "source": "https://github.com/andersao/l5-repository",
-                "wiki": "https://github.com/andersao/l5-repository"
-            },
-            "time": "2021-04-22T21:15:10+00:00"
-        },
-        {
-            "name": "prettus/laravel-validation",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/andersao/laravel-validator.git",
-                "reference": "cce3c273c9d44f77de031dc4dedd261ab936c497"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/cce3c273c9d44f77de031dc4dedd261ab936c497",
-                "reference": "cce3c273c9d44f77de031dc4dedd261ab936c497",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.4|^6.0|^7.0|^8.0",
-                "illuminate/validation": "~5.4|^6.0|^7.0|^8.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Prettus\\Validator\\": "src/Prettus/Validator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Anderson Andrade",
-                    "email": "contato@andersonandra.de",
-                    "homepage": "http://andersonandra.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel Validation Service",
-            "homepage": "http://andersao.github.io/laravel-validation",
-            "keywords": [
-                "laravel",
-                "service",
-                "validation"
-            ],
-            "support": {
-                "docs": "http://andersao.github.io/laravel-validation",
-                "email": "contato@andersonandra.de",
-                "issues": "https://github.com/andersao/laravel-validation/issues",
-                "source": "https://github.com/andersao/laravel-validation",
-                "wiki": "https://github.com/andersao/laravel-validation"
-            },
-            "time": "2020-09-21T20:20:45+00:00"
         },
         {
             "name": "psr/container",
@@ -8219,16 +8093,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.10.2",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "43688227bbf27c43bc1ad83af224f135b6ef0ff4"
+                "reference": "dc6818335f50ccf0b90284784718ea9a82604286"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/43688227bbf27c43bc1ad83af224f135b6ef0ff4",
-                "reference": "43688227bbf27c43bc1ad83af224f135b6ef0ff4",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/dc6818335f50ccf0b90284784718ea9a82604286",
+                "reference": "dc6818335f50ccf0b90284784718ea9a82604286",
                 "shasum": ""
             },
             "require": {
@@ -8236,7 +8110,6 @@
                 "ext-mbstring": "*",
                 "facade/flare-client-php": "^1.6",
                 "facade/ignition-contracts": "^1.0.2",
-                "filp/whoops": "^2.4",
                 "illuminate/support": "^7.0|^8.0",
                 "monolog/monolog": "^2.0",
                 "php": "^7.2.5|^8.0",
@@ -8292,7 +8165,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-06-11T06:57:25+00:00"
+            "time": "2021-07-12T15:55:51+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -8349,16 +8222,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.14.1",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1"
+                "reference": "89c6201c74db25fa759ff16e78a4d8f32547770e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1",
-                "reference": "ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/89c6201c74db25fa759ff16e78a4d8f32547770e",
+                "reference": "89c6201c74db25fa759ff16e78a4d8f32547770e",
                 "shasum": ""
             },
             "require": {
@@ -8408,9 +8281,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v.1.14.1"
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.15.0"
             },
-            "time": "2021-03-30T06:27:33+00:00"
+            "time": "2021-07-06T20:39:40+00:00"
         },
         {
             "name": "filp/whoops",
@@ -8606,16 +8479,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v12.3.0",
+            "version": "v12.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "47ce12224b198fd226e29702f7f94a9641e8e22d"
+                "reference": "d2fb82d15e74c774a9c03c6bf6ca29f08f1a21f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/47ce12224b198fd226e29702f7f94a9641e8e22d",
-                "reference": "47ce12224b198fd226e29702f7f94a9641e8e22d",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/d2fb82d15e74c774a9c03c6bf6ca29f08f1a21f2",
+                "reference": "d2fb82d15e74c774a9c03c6bf6ca29f08f1a21f2",
                 "shasum": ""
             },
             "require": {
@@ -8645,14 +8518,18 @@
                 {
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Joe Ferguson",
+                    "email": "joe@joeferguson.me"
                 }
             ],
             "description": "A virtual machine for web artisans.",
             "support": {
                 "issues": "https://github.com/laravel/homestead/issues",
-                "source": "https://github.com/laravel/homestead/tree/v12.3.0"
+                "source": "https://github.com/laravel/homestead/tree/v12.3.1"
             },
-            "time": "2021-05-29T01:23:00+00:00"
+            "time": "2021-07-08T14:08:09+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -9750,12 +9627,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "1a08d0c7ab47e57fad0d254951a615f07445e91f"
+                "reference": "88c4d972f82b364386c98eebecf38512708a4de4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1a08d0c7ab47e57fad0d254951a615f07445e91f",
-                "reference": "1a08d0c7ab47e57fad0d254951a615f07445e91f",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/88c4d972f82b364386c98eebecf38512708a4de4",
+                "reference": "88c4d972f82b364386c98eebecf38512708a4de4",
                 "shasum": ""
             },
             "conflict": {
@@ -9813,6 +9690,7 @@
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
+                "ether/logs": "<3.0.4",
                 "ezsystems/demobundle": ">=5.4,<5.4.6.1",
                 "ezsystems/ez-support-tools": ">=2.2,<2.2.3",
                 "ezsystems/ezdemo-ls-extension": ">=5.4,<5.4.2.1",
@@ -10118,7 +9996,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-02T20:02:51+00:00"
+            "time": "2021-07-12T17:14:45+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -11455,6 +11333,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "jackardios/apiato-core": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
@@ -11470,5 +11349,5 @@
         "ext-intl": "*",
         "ext-json": "*"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
