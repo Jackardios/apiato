@@ -33,7 +33,6 @@ class ViewUserTest extends ApiTestCase
 
     public function testViewAnotherExistingUser(): void
     {
-        $this->getTestingUser();
         $anotherUser = User::factory()->create();
 
         $response = $this->injectId($anotherUser->id)->makeCall();
@@ -55,7 +54,6 @@ class ViewUserTest extends ApiTestCase
 
     public function testViewAnotherNotExistingUser(): void
     {
-        $this->getTestingUser();
         $fakeUserId = 7777;
 
         $response = $this->injectId($fakeUserId)->makeCall();

@@ -39,20 +39,6 @@ class UpdateUserTest extends ApiTestCase
         $this->assertDatabaseHas('users', ['name' => $data['name']]);
     }
 
-    public function testUpdateNonExistingUser(): void
-    {
-        $this->getTestingUser();
-
-        $data = [
-            'name' => 'Updated Name',
-        ];
-        $fakeUserId = 7777;
-
-        $response = $this->injectId($fakeUserId)->makeCall($data);
-
-        $response->assertStatus(404);
-    }
-
     public function testUpdateExistingUserWithoutData(): void
     {
         $user = $this->getTestingUser();
@@ -81,10 +67,20 @@ class UpdateUserTest extends ApiTestCase
         ]);
     }
 
+    public function testUpdateNonExistingUser(): void
+    {
+        $data = [
+            'name' => 'Updated Name',
+        ];
+        $fakeUserId = 7777;
+
+        $response = $this->injectId($fakeUserId)->makeCall($data);
+
+        $response->assertStatus(404);
+    }
+
     public function testUpdateAnotherUserWithAccess(): void
     {
-        $this->getTestingUser();
-
         $anotherUser = User::factory()->create();
         $data = [
             'name' => 'Updated Name',

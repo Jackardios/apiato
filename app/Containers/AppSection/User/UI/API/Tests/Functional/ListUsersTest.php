@@ -16,11 +16,11 @@ class ListUsersTest extends ApiTestCase
     protected string $endpoint = 'get@api/v1/users';
 
     protected array $access = [
-        'roles' => 'admin',
+        'roles' => '',
         'permissions' => 'view-users',
     ];
 
-    public function testListUsersByAdmin(): void
+    public function testListUsersWithAccess(): void
     {
         User::factory()->count(2)->create();
 
@@ -32,7 +32,7 @@ class ListUsersTest extends ApiTestCase
         self::assertCount(4, $responseContent->data);
     }
 
-    public function testListUsersByNonAdmin(): void
+    public function testListUsersWithoutAccess(): void
     {
         $this->getTestingUserWithoutAccess();
         User::factory()->count(2)->create();
