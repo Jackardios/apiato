@@ -30,8 +30,8 @@ class SyncPermissionsOnRoleTest extends ApiTestCase
         $roleA = Role::factory()->create();
         $roleA->givePermissionTo($permissionA);
         $data = [
-            'role_id' => $roleA->getHashedKey(),
-            'permissions_ids' => [$permissionA->getHashedKey(), $permissionB->getHashedKey()]
+            'role_id' => $roleA->getKey(),
+            'permissions_ids' => [$permissionA->getKey(), $permissionB->getKey()]
         ];
 
         $response = $this->makeCall($data);

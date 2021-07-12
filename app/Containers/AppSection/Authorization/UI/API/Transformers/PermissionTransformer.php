@@ -19,7 +19,7 @@ class PermissionTransformer extends Transformer
     {
         return [
             'object' => $permission->getResourceKey(),
-            'id' => $permission->getHashedKey(), // << Unique Identifier
+            'id' => $permission->getKey(), // << Unique Identifier
             'name' => $permission->name, // << Unique Identifier
             'description' => $permission->description,
             'display_name' => $permission->display_name,

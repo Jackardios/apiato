@@ -21,7 +21,7 @@ class UserPrivateProfileTransformer extends Transformer
     {
         $response = [
             'object' => $user->getResourceKey(),
-            'id' => $user->getHashedKey(),
+            'id' => $user->getKey(),
             'name' => $user->name,
             'email' => $user->email,
             'email_verified_at' => $user->email_verified_at,

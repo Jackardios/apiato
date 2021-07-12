@@ -32,10 +32,10 @@ class SyncUserRolesTest extends ApiTestCase
         $randomUser->assignRole($role1);
         $data = [
             'roles_ids' => [
-                $role1->getHashedKey(),
-                $role2->getHashedKey(),
+                $role1->getKey(),
+                $role2->getKey(),
             ],
-            'user_id' => $randomUser->getHashedKey(),
+            'user_id' => $randomUser->getKey(),
         ];
 
         $response = $this->makeCall($data);

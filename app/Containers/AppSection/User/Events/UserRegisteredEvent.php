@@ -23,7 +23,7 @@ class UserRegisteredEvent extends Event implements ShouldQueue
      */
     public function handle(): void
     {
-        Log::info('New User registration. ID = ' . $this->user->getHashedKey() . ' | Email = ' . $this->user->email . '.');
+        Log::info('New User registration. ID = ' . $this->user->getKey() . ' | Email = ' . $this->user->email . '.');
     }
 
     /**

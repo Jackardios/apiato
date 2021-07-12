@@ -29,8 +29,8 @@ class RevokeUserFromRoleTest extends ApiTestCase
         $randomUser = User::factory()->create();
         $randomUser->assignRole($roleA);
         $data = [
-            'roles_ids' => [$roleA->getHashedKey()],
-            'user_id' => $randomUser->getHashedKey(),
+            'roles_ids' => [$roleA->getKey()],
+            'user_id' => $randomUser->getKey(),
         ];
 
         $response = $this->makeCall($data);
@@ -53,8 +53,8 @@ class RevokeUserFromRoleTest extends ApiTestCase
         $randomUser->assignRole($roleB);
 
         $data = [
-            'roles_ids' => [$roleA->getHashedKey(), $roleB->getHashedKey()],
-            'user_id' => $randomUser->getHashedKey(),
+            'roles_ids' => [$roleA->getKey(), $roleB->getKey()],
+            'user_id' => $randomUser->getKey(),
         ];
 
         $response = $this->makeCall($data);
