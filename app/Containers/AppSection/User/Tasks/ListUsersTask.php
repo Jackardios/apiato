@@ -7,19 +7,8 @@ use App\Ship\Parents\Tasks\Task;
 
 class ListUsersTask extends Task
 {
-    public function __construct()
+    public function run(bool $paginated = true)
     {
-        $query = User::query();
+        return $paginated ? User::paginate() : User::all();
     }
-
-    public function run(?bool $paginated = false)
-    {
-        return User::paginate();
-    }
-
-    public function runAll()
-    {
-        return User::all();
-    }
-
 }
