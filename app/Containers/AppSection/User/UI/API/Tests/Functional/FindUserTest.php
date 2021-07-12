@@ -16,7 +16,7 @@ class FindUserTest extends ApiTestCase
 
     protected array $access = [
         'roles' => '',
-        'permissions' => 'search-users',
+        'permissions' => 'view-users',
     ];
 
     public function testFindUser(): void

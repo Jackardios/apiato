@@ -3,8 +3,8 @@
 /**
  * @apiGroup           User
  * @apiName            registerUser
- * @api                {post} /v1/register Register User (create client)
- * @apiDescription     Register users as (client).
+ * @api                {post} /v1/register Register user
+ * @apiDescription     Register users
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
@@ -19,5 +19,5 @@
 use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [Controller::class, 'registerUser'])
+Route::post('/users', [Controller::class, 'registerUser'])
     ->name('api.users.create');

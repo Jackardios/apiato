@@ -7,21 +7,6 @@ use App\Ship\Parents\Requests\Request;
 class ResetPasswordRequest extends Request
 {
     /**
-     * Define which Roles and/or Permissions has access to this request.
-     */
-    protected array $access = [
-        'permissions' => '',
-        'roles' => '',
-    ];
-
-    /**
-     * Id's that needs decoding before applying the validation rules.
-     */
-    protected array $decode = [
-        // 'id',
-    ];
-
-    /**
      * Defining the URL parameters (e.g, `/user/{id}`) allows applying
      * validation rules on them and allows accessing them like request data.
      */
@@ -42,8 +27,6 @@ class ResetPasswordRequest extends Request
 
     public function authorize(): bool
     {
-        return $this->check([
-            'hasAccess',
-        ]);
+        return true;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Containers\AppSection\User\UI\API\Tests\Functional;
 
+use App\Containers\AppSection\User\Models\User;
 use App\Containers\AppSection\User\Tests\ApiTestCase;
 
 /**
@@ -40,6 +41,8 @@ class UpdateUserTest extends ApiTestCase
 
     public function testUpdateNonExistingUser(): void
     {
+        $this->getTestingUser();
+
         $data = [
             'name' => 'Updated Name',
         ];
@@ -47,30 +50,28 @@ class UpdateUserTest extends ApiTestCase
 
         $response = $this->injectId($fakeUserId)->makeCall($data);
 
-        $response->assertStatus(422);
-        $this->assertResponseContainKeyValue([
-            'message' => 'The given data was invalid.'
-        ]);
+        $response->assertStatus(404);
     }
 
     public function testUpdateExistingUserWithoutData(): void
     {
-        $response = $this->makeCall();
+        $user = $this->getTestingUser();
 
-        $response->assertStatus(422);
-        $this->assertResponseContainKeyValue([
-            'message' => 'The given data was invalid.'
-        ]);
+        $response = $this->injectId($user->id)->makeCall();
+
+        $response->assertStatus(417);
     }
 
     public function testUpdateExistingUserWithEmptyValues(): void
     {
+        $user = $this->getTestingUser();
+
         $data = [
             'name' => '',
             'password' => ''
         ];
 
-        $response = $this->makeCall($data);
+        $response = $this->injectId($user->id)->makeCall($data);
 
         $response->assertStatus(422);
         $this->assertValidationErrorContain([
@@ -78,5 +79,42 @@ class UpdateUserTest extends ApiTestCase
             'password' => 'The password must be at least 6 characters.',
             'name' => 'The name must be at least 2 characters.'
         ]);
+    }
+
+    public function testUpdateAnotherUserWithAccess(): void
+    {
+        $this->getTestingUser();
+
+        $anotherUser = User::factory()->create();
+        $data = [
+            'name' => 'Updated Name',
+            'password' => 'updated#Password'
+        ];
+
+        $response = $this->injectId($anotherUser->id)->makeCall($data);
+
+        $response->assertStatus(200);
+        $this->assertResponseContainKeyValue([
+            'object' => 'User',
+            'email' => $anotherUser->email,
+            'name' => $data['name']
+        ]);
+        $this->assertDatabaseHas('users', ['name' => $data['name']]);
+    }
+
+    public function testUpdateAnotherUserWithoutAccess(): void
+    {
+        $this->getTestingUserWithoutAccess();
+
+        $anotherUser = User::factory()->create();
+        $data = [
+            'name' => 'Updated Name',
+            'password' => 'updated#Password'
+        ];
+
+        $response = $this->injectId($anotherUser->id)->makeCall($data);
+
+        $response->assertStatus(403);
+        $this->assertDatabaseMissing('users', ['name' => $data['name']]);
     }
 }

@@ -17,6 +17,6 @@
 use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::patch('users/{id}', [Controller::class, 'updateUser'])
+Route::patch('users/{user}', [Controller::class, 'updateUser'])
     ->name('api.users.update')
     ->middleware(['auth:api']);

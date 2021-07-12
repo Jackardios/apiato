@@ -3,18 +3,19 @@
 namespace App\Containers\AppSection\User\UI\API\Controllers;
 
 use App\Containers\AppSection\User\Actions\DeleteUserAction;
-use App\Containers\AppSection\User\Actions\FindUserByIdAction;
+use App\Containers\AppSection\User\Actions\ViewUserAction;
 use App\Containers\AppSection\User\Actions\ForgotPasswordAction;
-use App\Containers\AppSection\User\Actions\GetAllUsersAction;
+use App\Containers\AppSection\User\Actions\ListUsersAction;
 use App\Containers\AppSection\User\Actions\GetAuthenticatedUserAction;
 use App\Containers\AppSection\User\Actions\RegisterUserAction;
 use App\Containers\AppSection\User\Actions\ResetPasswordAction;
 use App\Containers\AppSection\User\Actions\UpdateUserAction;
+use App\Containers\AppSection\User\Models\User;
 use App\Containers\AppSection\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\AppSection\User\UI\API\Requests\DeleteUserRequest;
-use App\Containers\AppSection\User\UI\API\Requests\FindUserByIdRequest;
+use App\Containers\AppSection\User\UI\API\Requests\ViewUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\ForgotPasswordRequest;
-use App\Containers\AppSection\User\UI\API\Requests\GetAllUsersRequest;
+use App\Containers\AppSection\User\UI\API\Requests\ListUsersRequest;
 use App\Containers\AppSection\User\UI\API\Requests\GetAuthenticatedUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\AppSection\User\UI\API\Requests\ResetPasswordRequest;
@@ -28,37 +29,37 @@ class Controller extends ApiController
 {
     public function registerUser(RegisterUserRequest $request): array
     {
-        $user = app(RegisterUserAction::class)->run($request);
-        return $this->transform($user, UserTransformer::class);
+        $registeredUser = app(RegisterUserAction::class)->run($request);
+        return $this->transform($registeredUser, UserTransformer::class);
     }
 
-    public function updateUser(UpdateUserRequest $request): array
+    public function updateUser(UpdateUserRequest $request, User $user): array
     {
-        $user = app(UpdateUserAction::class)->run($request);
-        return $this->transform($user, UserTransformer::class);
+        $updatedUser = app(UpdateUserAction::class)->run($request, $user);
+        return $this->transform($updatedUser, UserTransformer::class);
     }
 
-    public function deleteUser(DeleteUserRequest $request): JsonResponse
+    public function deleteUser(DeleteUserRequest $request, User $user): JsonResponse
     {
-        app(DeleteUserAction::class)->run($request);
+        app(DeleteUserAction::class)->run($request, $user);
         return $this->noContent();
     }
 
-    public function getAllUsers(GetAllUsersRequest $request): array
+    public function listUsers(ListUsersRequest $request): array
     {
-        $users = app(GetAllUsersAction::class)->run();
+        $users = app(ListUsersAction::class)->run($request);
         return $this->transform($users, UserTransformer::class);
     }
 
-    public function findUserById(FindUserByIdRequest $request): array
+    public function viewUser(ViewUserRequest $request, User $user): array
     {
-        $user = app(FindUserByIdAction::class)->run($request);
+        $user = app(ViewUserAction::class)->run($request, $user);
         return $this->transform($user, UserTransformer::class);
     }
 
     public function getAuthenticatedUser(GetAuthenticatedUserRequest $request): array
     {
-        $user = app(GetAuthenticatedUserAction::class)->run();
+        $user = app(GetAuthenticatedUserAction::class)->run($request);
         return $this->transform($user, UserPrivateProfileTransformer::class);
     }
 

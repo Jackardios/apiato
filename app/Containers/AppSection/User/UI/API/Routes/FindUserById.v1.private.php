@@ -2,7 +2,7 @@
 
 /**
  * @apiGroup           User
- * @apiName            findUserById
+ * @apiName            viewUser
  * @api                {get} /v1/users/:id Find User
  * @apiDescription     Find a user by its ID
  *
@@ -15,6 +15,6 @@
 use App\Containers\AppSection\User\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('users/{id}', [Controller::class, 'findUserById'])
+Route::get('users/{user}', [Controller::class, 'viewUser'])
     ->name('api.users.view')
     ->middleware(['auth:api']);

@@ -30,4 +30,15 @@ class User extends UserModel
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeWithEmail($query)
+    {
+        return $query->whereNotNull('email');
+    }
 }

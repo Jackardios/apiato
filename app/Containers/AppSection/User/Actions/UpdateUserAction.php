@@ -9,13 +9,13 @@ use App\Ship\Parents\Actions\Action;
 
 class UpdateUserAction extends Action
 {
-    public function run(UpdateUserRequest $request): User
+    public function run(UpdateUserRequest $request, User $user): User
     {
         $sanitizedData = $request->sanitizeInput([
             'password',
             'name',
         ]);
 
-        return app(UpdateUserTask::class)->run($sanitizedData, $request->id);
+        return app(UpdateUserTask::class)->run($sanitizedData, $user);
     }
 }

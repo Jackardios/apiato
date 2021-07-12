@@ -2,7 +2,6 @@
 
 namespace App\Containers\AppSection\User\Tasks;
 
-use App\Containers\AppSection\User\Data\Repositories\UserRepository;
 use App\Containers\AppSection\User\Models\User;
 use App\Ship\Exceptions\InternalErrorException;
 use App\Ship\Exceptions\NotFoundException;
@@ -14,17 +13,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UpdateUserTask extends Task
 {
-    protected UserRepository $repository;
-
-    public function __construct(UserRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
-    public function run(array $userData, $userId): User
+    public function run(array $userData, User $user): User
     {
         if (empty($userData)) {
-            throw new UpdateResourceFailedException('Inputs are empty.');
+            throw new UpdateResourceFailedException('appSection@user::exceptions.inputs-empty');
         }
 
         try {
@@ -33,9 +25,9 @@ class UpdateUserTask extends Task
                 $userData['password'] = Hash::make($userData['password']);
             }
 
-            $user = $this->repository->update($userData, $userId);
+            $user->update($userData);
         } catch (ModelNotFoundException $exception) {
-            throw new NotFoundException('User Not Found.');
+            throw new NotFoundException('appSection@user::exceptions.user-not-found');
         } catch (Exception $exception) {
             throw new InternalErrorException();
         }

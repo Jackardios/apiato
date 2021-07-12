@@ -6,21 +6,21 @@ use App\Containers\AppSection\User\Models\User;
 use App\Containers\AppSection\User\Tests\ApiTestCase;
 
 /**
- * Class GetAllUsersTest.
+ * Class ListUsersTest.
  *
  * @group user
  * @group api
  */
-class GetAllUsersTest extends ApiTestCase
+class ListUsersTest extends ApiTestCase
 {
     protected string $endpoint = 'get@api/v1/users';
 
     protected array $access = [
         'roles' => 'admin',
-        'permissions' => 'list-users',
+        'permissions' => 'view-users',
     ];
 
-    public function testGetAllUsersByAdmin(): void
+    public function testListUsersByAdmin(): void
     {
         User::factory()->count(2)->create();
 
@@ -32,7 +32,7 @@ class GetAllUsersTest extends ApiTestCase
         self::assertCount(4, $responseContent->data);
     }
 
-    public function testGetAllUsersByNonAdmin(): void
+    public function testListUsersByNonAdmin(): void
     {
         $this->getTestingUserWithoutAccess();
         User::factory()->count(2)->create();
@@ -43,20 +43,5 @@ class GetAllUsersTest extends ApiTestCase
         $this->assertResponseContainKeyValue([
             'message' => 'This action is unauthorized.',
         ]);
-    }
-
-    public function testSearchUsersByName(): void
-    {
-        User::factory()->count(3)->create();
-        $user = $this->getTestingUser([
-            'name' => 'mahmoudzzz'
-        ]);
-
-        $response = $this->endpoint($this->endpoint . '?search=name:mahmoudzzz')->makeCall();
-
-        $response->assertStatus(200);
-        $responseContent = $this->getResponseContentObject();
-        self::assertEquals($user->name, $responseContent->data[0]->name);
-        self::assertCount(1, $responseContent->data);
     }
 }

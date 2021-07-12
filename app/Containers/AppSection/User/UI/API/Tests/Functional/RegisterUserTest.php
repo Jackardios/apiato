@@ -12,13 +12,11 @@ use App\Containers\AppSection\User\Tests\ApiTestCase;
  */
 class RegisterUserTest extends ApiTestCase
 {
-    protected string $endpoint = 'post@api/v1/register';
-
-    protected bool $auth = false;
+    protected string $endpoint = 'post@api/v1/users';
 
     protected array $access = [
         'roles' => '',
-        'permissions' => '',
+        'permissions' => 'create-users',
     ];
 
     public function testRegisterNewUserWithCredentials(): void
@@ -39,22 +37,6 @@ class RegisterUserTest extends ApiTestCase
         $responseContent = $this->getResponseContentObject();
         self::assertNotEmpty($responseContent->data);
         $this->assertDatabaseHas('users', ['email' => $data['email']]);
-    }
-
-    public function testRegisterNewUserUsingGetVerb(): void
-    {
-        $data = [
-            'email' => 'apiato@mail.test',
-            'name' => 'Apiato',
-            'password' => 'secret',
-        ];
-
-        $response = $this->endpoint('get@api/v1/register')->makeCall($data);
-
-        $response->assertStatus(405);
-        $this->assertResponseContainKeyValue([
-            'message' => 'The GET method is not supported for this route. Supported methods: POST.',
-        ]);
     }
 
     public function testRegisterExistingUser(): void
