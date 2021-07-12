@@ -6,14 +6,14 @@ use App\Containers\AppSection\Authorization\Models\Role;
 use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
 
 /**
- * Class FindRoleTest.
+ * Class ViewRoleTest.
  *
  * @group authorization
  * @group api
  *
  * @author  Mahmoud Zalt <mahmoud@zalt.me>
  */
-class FindRoleTest extends ApiTestCase
+class ViewRoleTest extends ApiTestCase
 {
     protected string $endpoint = 'get@api/v1/roles/{id}';
 

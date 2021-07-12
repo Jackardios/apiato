@@ -7,22 +7,24 @@ use App\Containers\AppSection\Authorization\Actions\AttachPermissionsToRoleActio
 use App\Containers\AppSection\Authorization\Actions\CreateRoleAction;
 use App\Containers\AppSection\Authorization\Actions\DeleteRoleAction;
 use App\Containers\AppSection\Authorization\Actions\DetachPermissionsFromRoleAction;
-use App\Containers\AppSection\Authorization\Actions\FindPermissionAction;
-use App\Containers\AppSection\Authorization\Actions\FindRoleAction;
-use App\Containers\AppSection\Authorization\Actions\GetAllPermissionsAction;
-use App\Containers\AppSection\Authorization\Actions\GetAllRolesAction;
+use App\Containers\AppSection\Authorization\Actions\ViewPermissionAction;
+use App\Containers\AppSection\Authorization\Actions\ViewRoleAction;
+use App\Containers\AppSection\Authorization\Actions\ListPermissionsAction;
+use App\Containers\AppSection\Authorization\Actions\ListRolesAction;
 use App\Containers\AppSection\Authorization\Actions\RevokeUserFromRoleAction;
 use App\Containers\AppSection\Authorization\Actions\SyncPermissionsOnRoleAction;
 use App\Containers\AppSection\Authorization\Actions\SyncUserRolesAction;
+use App\Containers\AppSection\Authorization\Models\Permission;
+use App\Containers\AppSection\Authorization\Models\Role;
 use App\Containers\AppSection\Authorization\UI\API\Requests\AssignUserToRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\AttachPermissionToRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\CreateRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\DeleteRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\DetachPermissionToRoleRequest;
-use App\Containers\AppSection\Authorization\UI\API\Requests\FindPermissionRequest;
-use App\Containers\AppSection\Authorization\UI\API\Requests\FindRoleRequest;
-use App\Containers\AppSection\Authorization\UI\API\Requests\GetAllPermissionsRequest;
-use App\Containers\AppSection\Authorization\UI\API\Requests\GetAllRolesRequest;
+use App\Containers\AppSection\Authorization\UI\API\Requests\ViewPermissionRequest;
+use App\Containers\AppSection\Authorization\UI\API\Requests\ViewRoleRequest;
+use App\Containers\AppSection\Authorization\UI\API\Requests\ListPermissionsRequest;
+use App\Containers\AppSection\Authorization\UI\API\Requests\ListRolesRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\RevokeUserFromRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\SyncPermissionsOnRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Requests\SyncUserRolesRequest;
@@ -34,27 +36,27 @@ use Illuminate\Http\JsonResponse;
 
 class Controller extends ApiController
 {
-    public function getAllPermissions(GetAllPermissionsRequest $request): array
+    public function listPermissions(ListPermissionsRequest $request): array
     {
-        $permissions = app(GetAllPermissionsAction::class)->run();
+        $permissions = app(ListPermissionsAction::class)->run();
         return $this->transform($permissions, PermissionTransformer::class);
     }
 
-    public function findPermission(FindPermissionRequest $request): array
+    public function viewPermission(ViewPermissionRequest $request, Permission $permission): array
     {
-        $permission = app(FindPermissionAction::class)->run($request);
+        $permission = app(ViewPermissionAction::class)->run($request, $permission);
         return $this->transform($permission, PermissionTransformer::class);
     }
 
-    public function getAllRoles(GetAllRolesRequest $request): array
+    public function listRoles(ListRolesRequest $request): array
     {
-        $roles = app(GetAllRolesAction::class)->run();
+        $roles = app(ListRolesAction::class)->run();
         return $this->transform($roles, RoleTransformer::class);
     }
 
-    public function findRole(FindRoleRequest $request): array
+    public function viewRole(ViewRoleRequest $request, Role $role): array
     {
-        $role = app(FindRoleAction::class)->run($request);
+        $role = app(ViewRoleAction::class)->run($request, $role);
         return $this->transform($role, RoleTransformer::class);
     }
 
@@ -70,9 +72,9 @@ class Controller extends ApiController
         return $this->transform($user, UserTransformer::class);
     }
 
-    public function deleteRole(DeleteRoleRequest $request): JsonResponse
+    public function deleteRole(DeleteRoleRequest $request, Role $role): JsonResponse
     {
-        app(DeleteRoleAction::class)->run($request);
+        app(DeleteRoleAction::class)->run($request, $role);
         return $this->noContent();
     }
 

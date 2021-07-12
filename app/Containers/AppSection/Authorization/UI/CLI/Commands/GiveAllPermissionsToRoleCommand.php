@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Authorization\UI\CLI\Commands;
 
 use App\Containers\AppSection\Authorization\Exceptions\RoleNotFoundException;
 use App\Containers\AppSection\Authorization\Tasks\FindRoleTask;
-use App\Containers\AppSection\Authorization\Tasks\GetAllPermissionsTask;
+use App\Containers\AppSection\Authorization\Tasks\ListPermissionsTask;
 use App\Ship\Parents\Commands\ConsoleCommand;
 
 class GiveAllPermissionsToRoleCommand extends ConsoleCommand
@@ -20,7 +20,7 @@ class GiveAllPermissionsToRoleCommand extends ConsoleCommand
     {
         $roleName = $this->argument('role');
 
-        $allPermissions = app(GetAllPermissionsTask::class)->run(true);
+        $allPermissions = app(ListPermissionsTask::class)->run(false);
 
         $role = app(FindRoleTask::class)->run($roleName);
 

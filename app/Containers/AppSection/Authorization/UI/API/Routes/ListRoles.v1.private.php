@@ -2,8 +2,8 @@
 
 /**
  * @apiGroup           RolePermission
- * @apiName            getAllPermissions
- * @api                {get} /v1/permissions Get All Permission
+ * @apiName            listRoles
+ * @api                {get} /v1/roles Get All Roles
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
@@ -14,6 +14,6 @@
 use App\Containers\AppSection\Authorization\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('permissions', [Controller::class, 'getAllPermissions'])
-    ->name('api.permissions.list')
+Route::get('roles', [Controller::class, 'listRoles'])
+    ->name('api.roles.list')
     ->middleware(['auth:api']);

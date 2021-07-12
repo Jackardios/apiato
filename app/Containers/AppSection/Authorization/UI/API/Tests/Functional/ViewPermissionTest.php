@@ -6,14 +6,14 @@ use App\Containers\AppSection\Authorization\Models\Permission;
 use App\Containers\AppSection\Authorization\Tests\ApiTestCase;
 
 /**
- * Class FindPermissionTest.
+ * Class ViewPermissionTest.
  *
  * @group authorization
  * @group api
  *
  * @author  Mahmoud Zalt <mahmoud@zalt.me>
  */
-class FindPermissionTest extends ApiTestCase
+class ViewPermissionTest extends ApiTestCase
 {
     protected string $endpoint = 'get@api/v1/permissions/{id}';
 

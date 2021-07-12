@@ -10,11 +10,8 @@ use Spatie\Permission\Contracts\Role;
 
 class DeleteRoleAction extends Action
 {
-    public function run(DeleteRoleRequest $request): Role
+    public function run(DeleteRoleRequest $request, $role): void
     {
-        $role = app(FindRoleTask::class)->run($request->id);
         app(DeleteRoleTask::class)->run($role);
-
-        return $role;
     }
 }

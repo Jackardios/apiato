@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Authorization\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
-class FindRoleRequest extends Request
+class ListPermissionsRequest extends Request
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -18,7 +18,7 @@ class FindRoleRequest extends Request
      * Id's that needs decoding before applying the validation rules.
      */
     protected array $decode = [
-        'id',
+
     ];
 
     /**
@@ -26,13 +26,13 @@ class FindRoleRequest extends Request
      * validation rules on them and allows accessing them like request data.
      */
     protected array $urlParameters = [
-        'id',
+
     ];
 
     public function rules(): array
     {
         return [
-            'id' => 'required|exists:' . config('permission.table_names.roles') . ',id'
+
         ];
     }
 

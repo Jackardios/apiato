@@ -13,7 +13,6 @@ class DetachPermissionsFromRoleTask extends Task
             $singleOrMultiplePermissionIds = [$singleOrMultiplePermissionIds];
         }
 
-        // remove each permission ID found in the array from that role.
         array_map(static function ($permissionId) use ($role) {
             $permission = app(FindPermissionTask::class)->run($permissionId);
             $role->revokePermissionTo($permission);

@@ -2,18 +2,18 @@
 
 /**
  * @apiGroup           RolePermission
- * @apiName            getPermission
- * @api                {get} /v1/permissions/:id Find a Permission by ID
+ * @apiName            getRole
+ * @api                {get} /v1/roles/:id Find a Role by ID
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
- * @apiUse             PermissionSuccessSingleResponse
+ * @apiUse             RoleSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Authorization\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('permissions/{id}', [Controller::class, 'findPermission'])
-    ->name('api.permissions.view')
+Route::get('roles/{role}', [Controller::class, 'viewRole'])
+    ->name('api.roles.view')
     ->middleware(['auth:api']);
