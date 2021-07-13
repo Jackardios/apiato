@@ -4,7 +4,7 @@
  * @apiGroup           User
  * @apiName            forgotPassword
  *
- * @api                {POST} /v1/password/forgot Forgot password
+ * @api                {POST} /api/v1/password/forgot Forgot password
  * @apiDescription     Forgot password endpoint.
  *
  * @apiVersion         1.0.0

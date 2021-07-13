@@ -3,7 +3,7 @@
 /**
  * @apiGroup           User
  * @apiName            deleteUser
- * @api                {delete} /v1/users/:id Delete User
+ * @api                {delete} /api/v1/users/:id Delete User
  * @apiDescription     Delete users of any type (Admin, Client...)
  *
  * @apiVersion         1.0.0

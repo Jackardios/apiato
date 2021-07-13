@@ -3,7 +3,7 @@
 /**
  * @apiGroup           OAuth2
  * @apiName            ProxyLoginForWebClient
- * @api                {post} /v1/clients/web/login Login (Password Grant with proxy)
+ * @api                {post} /api/v1/clients/web/login Login (Password Grant with proxy)
  * @apiDescription     Login Users using their email and password, without client_id and client_secret.
  *
  * @apiVersion         1.0.0

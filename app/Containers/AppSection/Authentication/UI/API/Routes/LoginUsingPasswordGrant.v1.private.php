@@ -3,7 +3,7 @@
 /**
  * @apiGroup           OAuth2
  * @apiName            LoginPasswordGrant
- * @api                {post} /v1/oauth/token Login (Password Grant)
+ * @api                {post} /api/v1/oauth/token Login (Password Grant)
  * @apiDescription     Login Users using their username and passwords. (For First-Party Clients)
  *
  * @apiVersion         1.0.0

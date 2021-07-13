@@ -3,7 +3,7 @@
 /**
  * @apiGroup           User
  * @apiName            listUsers
- * @api                {get} /v1/users Get All Users
+ * @api                {get} /api/v1/users Get All Users
  * @apiDescription     Get All Application Users (clients and admins). For all registered users "Clients" only you
  *                     can use `/clients`. And for all "Admins" only you can use `/admins`.
  *

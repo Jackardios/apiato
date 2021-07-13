@@ -3,7 +3,7 @@
 /**
  * @apiGroup           User
  * @apiName            updateUser
- * @api                {patch} /v1/users/:id Update User
+ * @api                {patch} /api/v1/users/:id Update User
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User

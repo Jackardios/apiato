@@ -3,7 +3,7 @@
 /**
  * @apiGroup           RolePermission
  * @apiName            listRoles
- * @api                {get} /v1/roles Get All Roles
+ * @api                {get} /api/v1/roles Get All Roles
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User

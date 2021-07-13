@@ -3,7 +3,7 @@
 /**
  * @apiGroup           OAuth2
  * @apiName            ProxyRefreshForWebClient
- * @api                {post} /v1/clients/web/refresh Refresh
+ * @api                {post} /api/v1/clients/web/refresh Refresh
  * @apiDescription     Get new tokens given a valid refresh token is provided.
  *
  * @apiVersion         1.0.0

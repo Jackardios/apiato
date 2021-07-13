@@ -4,7 +4,7 @@
  * @apiGroup           User
  * @apiName            getAuthenticatedUser
  *
- * @api                {GET} /v1/user/profile Find Logged in User data (Profile Information)
+ * @api                {GET} /api/v1/user/profile Find Logged in User data (Profile Information)
  * @apiDescription     Find the user details of the logged in user from its Token. (without specifying his ID)
  *
  * @apiVersion         1.0.0
