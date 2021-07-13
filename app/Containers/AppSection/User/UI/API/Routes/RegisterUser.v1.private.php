@@ -3,7 +3,7 @@
 /**
  * @apiGroup           User
  * @apiName            registerUser
- * @api                {post} /api/v1/register Register user
+ * @api                {post} /api/v1/users Register user
  * @apiDescription     Register users
  *
  * @apiVersion         1.0.0
