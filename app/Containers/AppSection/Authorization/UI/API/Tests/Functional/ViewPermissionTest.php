@@ -30,6 +30,6 @@ class ViewPermissionTest extends ApiTestCase
 
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
-        self::assertEquals($permissionA->name, $responseContent->data->name);
+        $this->assertEquals($permissionA->name, $responseContent->data->name);
     }
 }

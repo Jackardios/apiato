@@ -28,7 +28,7 @@ class ViewUserTest extends ApiTestCase
 
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
-        self::assertEquals($user->name, $responseContent->data->name);
+        $this->assertEquals($user->name, $responseContent->data->name);
     }
 
     public function testViewAnotherExistingUser(): void
@@ -39,7 +39,7 @@ class ViewUserTest extends ApiTestCase
 
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
-        self::assertEquals($anotherUser->name, $responseContent->data->name);
+        $this->assertEquals($anotherUser->name, $responseContent->data->name);
     }
 
     public function testViewAnotherExistingUserWithoutAccess(): void
@@ -70,9 +70,9 @@ class ViewUserTest extends ApiTestCase
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
 
-        self::assertEquals($user->name, $responseContent->data->name);
-        self::assertEquals($user->email, $responseContent->data->email);
-        self::assertNotContains('id', json_decode($response->getContent(), true));
+        $this->assertEquals($user->name, $responseContent->data->name);
+        $this->assertEquals($user->email, $responseContent->data->email);
+        $this->assertNotContains('id', json_decode($response->getContent(), true));
     }
 
     public function testViewUserWithRelation(): void
@@ -84,7 +84,7 @@ class ViewUserTest extends ApiTestCase
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
 
-        self::assertEquals($user->email, $responseContent->data->email);
-        self::assertNotNull($responseContent->data->roles);
+        $this->assertEquals($user->email, $responseContent->data->email);
+        $this->assertNotNull($responseContent->data->roles);
     }
 }

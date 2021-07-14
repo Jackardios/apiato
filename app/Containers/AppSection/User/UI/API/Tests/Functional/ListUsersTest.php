@@ -29,7 +29,7 @@ class ListUsersTest extends ApiTestCase
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
 
-        self::assertCount(4, $responseContent->data);
+        $this->assertCount(4, $responseContent->data);
     }
 
     public function testListUsersWithoutAccess(): void

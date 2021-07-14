@@ -27,7 +27,7 @@ class RegisterUserTest extends TestCase
         $request = new RegisterUserRequest($data);
         $user = App::make(RegisterUserAction::class)->run($request);
 
-        self::assertInstanceOf(User::class, $user);
-        self::assertEquals($user->name, $data['name']);
+        $this->assertInstanceOf(User::class, $user);
+        $this->assertEquals($user->name, $data['name']);
     }
 }

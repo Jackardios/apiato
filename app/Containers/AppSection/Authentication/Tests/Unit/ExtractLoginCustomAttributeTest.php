@@ -30,10 +30,10 @@ class ExtractLoginCustomAttributeTest extends TestCase
 
     private function assertAttributeIsExtracted($result, $userDetails): void
     {
-        self::assertIsArray($result);
-        self::assertArrayHasKey('username', $result);
-        self::assertArrayHasKey('loginAttribute', $result);
-        self::assertSame($result['username'], $userDetails['email']);
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('username', $result);
+        $this->assertArrayHasKey('loginAttribute', $result);
+        $this->assertSame($result['username'], $userDetails['email']);
     }
 
     public function testWhenNoLoginAttributeIsProvidedShouldUseEmailFieldAsDefaultFallback(): void

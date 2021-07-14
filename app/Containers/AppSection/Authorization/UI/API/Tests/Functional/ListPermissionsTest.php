@@ -27,6 +27,6 @@ class ListPermissionsTest extends ApiTestCase
 
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
-        self::assertTrue(count($responseContent->data) > 0);
+        $this->assertTrue(count($responseContent->data) > 0);
     }
 }

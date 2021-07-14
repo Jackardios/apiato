@@ -33,7 +33,7 @@ class CreateRoleTest extends ApiTestCase
 
         $response->assertStatus(200);
         $responseContent = $this->getResponseContentObject();
-        self::assertEquals($data['name'], $responseContent->data->name);
+        $this->assertEquals($data['name'], $responseContent->data->name);
     }
 
     public function testCreateRoleWithWrongName(): void
